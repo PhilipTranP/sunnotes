@@ -1,4 +1,4 @@
-### Pup
+### Sunnotes
 A boilerplate for products.
 
 [Read the Documentation](http://cleverbeagle.com/pup)

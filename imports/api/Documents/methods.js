@@ -6,8 +6,17 @@ import rateLimit from '../../modules/rate-limit';
 Meteor.methods({
   'documents.insert': function documentsInsert(doc) {
     check(doc, {
+      _id: String,
+      fileId: String,
+      jacket: String,
+      authors: [ String ],
       title: String,
-      body: String,
+      content: String,
+      summary: String,
+      descript: String,
+      edition: String,
+      subjects: [ String ],
+      ISBNs: [String]
     });
 
     try {
@@ -19,8 +28,16 @@ Meteor.methods({
   'documents.update': function documentsUpdate(doc) {
     check(doc, {
       _id: String,
+      fileId: String,
+      jacket: String,
+      authors: [ String ],
       title: String,
-      body: String,
+      content: String,
+      summary: String,
+      descript: String,
+      edition: String,
+      subjects: [ String ],
+      ISBNs: [String]
     });
 
     try {

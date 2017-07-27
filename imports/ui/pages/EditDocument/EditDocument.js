@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import Documents from '../../../api/Documents/Documents';
-import DocumentEditor from '../../components/DocumentEditor/DocumentEditor';
+// import DocumentEditor from '../../components/DocumentEditor/DocumentEditor';
+import DocEditor from '../../components/DocumentEditor/DocEditor';
 import NotFound from '../NotFound/NotFound';
 
 const EditDocument = ({ doc, history }) => (doc ? (
   <div className="EditDocument">
     <h4 className="page-header">{`Editing "${doc.title}"`}</h4>
-    <DocumentEditor doc={doc} history={history} />
+    <DocEditor doc={doc} history={history} />
   </div>
 ) : <NotFound />);
 

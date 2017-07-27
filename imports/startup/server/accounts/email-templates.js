@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
-const name = 'Application Name';
+const name = 'Sunnotes.org';
 const email = '<support@application.com>';
 const from = `${name} ${email}`;
 const emailTemplates = Accounts.emailTemplates;
