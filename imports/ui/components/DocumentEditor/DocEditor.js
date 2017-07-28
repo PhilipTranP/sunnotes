@@ -69,16 +69,23 @@ class DocEditor extends React.Component {
 
     if (existingDocument) doc._id = existingDocument;
 
-    Meteor.call(methodToCall, doc, (error, documentId) => {
-      if (error) {
-        Bert.alert(error.reason, 'danger');
-      } else {
-        const confirmation = existingDocument ? 'Document updated!' : 'Document added!';
-        this.form.reset();
-        Bert.alert(confirmation, 'success');
-        history.push(`/documents/new/${doc._id}`);
-      }
-    });
+    const filterJ =  doc.jacket.substring(doc.jacket.indexOf("Jacket/"), doc.jacket.length -1) //remove the first part of the URL
+    const filterJacket =  filterJ.substring(filterJ.indexOf("/")+1, filterJ.indexOf(".")).replace(/[^a-zA-Z]/g, "").toLowerCase()
+    const newTitle = doc.title.replace(/[^a-zA-Z]/g, "").toLowerCase()
+    if(filterJacket !== newTitle){
+      Bert.alert("Book title and its jacket is not matching. Make sure the name of the jacket image the same with the book title!", 'danger')
+    } else {
+      Meteor.call(methodToCall, doc, (error, documentId) => {
+        if (error) {
+          Bert.alert(error.reason, 'danger');
+        } else {
+          const confirmation = existingDocument ? 'Document updated!' : 'Document added!';
+          this.form.reset();
+          Bert.alert(confirmation, 'success');
+          history.push(`/documents/new/${doc._id}`);
+        }
+      });
+    }
   }
   render() {
     const { files } = this.props;

@@ -41,7 +41,7 @@ class JacketUploader extends React.Component {
         }
 
         if (!error && this.state.uploadProgress === 100) {
-          setTimeout(() => { this.setState({ isUploading: false, uploadProgress: 0 }); }, 500);
+          setTimeout(() => { this.setState({ isUploading: false, uploadProgress: 0 }); }, 1500);
           Bert.alert('File uploaded!', 'success');
           history.push(`/documents/new/book-info`);
         }
