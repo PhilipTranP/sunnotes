@@ -87,6 +87,7 @@ class DocEditor extends React.Component {
       });
     }
   }
+
   render() {
     const { files } = this.props;
     const getLastUploadedUrl = files.map((file => file.url))

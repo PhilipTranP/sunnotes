@@ -13,6 +13,10 @@ import Documents from '../../pages/Documents/Documents';
 import NewJacket from '../../pages/NewDocument/NewJacket';
 import NewBook from '../../pages/NewDocument/NewBook';
 import NewLibrary from '../../pages/NewDocument/NewLibrary';
+
+import SearchBook from '../../pages/SearchBook/SearchBook'
+import Requests from '../../pages/SearchBook/Requests'
+
 import ViewDocument from '../../pages/ViewDocument/ViewDocument';
 import EditDocument from '../../pages/EditDocument/EditDocument';
 import Signup from '../../pages/Signup/Signup';
@@ -37,6 +41,8 @@ const App = props => (
         <Switch>
           <Route exact name="index" path="/" component={Index} />
           <Authenticated exact path="/documents" component={Documents} {...props} />
+          <Authenticated exact path="/search-book" component={SearchBook} {...props} />
+          <Authenticated exact path="/requests" component={Requests} {...props} />
           <Authenticated exact path="/documents/new" component={NewJacket} {...props} />
           <Authenticated exact path="/documents/new/book-info" component={NewBook} {...props} />
           <Authenticated exact path="/documents/new/:_id" component={NewLibrary} {...props} />
