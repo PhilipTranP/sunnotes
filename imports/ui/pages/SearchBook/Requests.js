@@ -11,7 +11,17 @@ import Loading from '../../components/Loading/Loading';
 
 import './Requests.scss';
 
-
+const handleRemove = (bookId) => {
+  if (confirm('Are you sure? This is permanent!')) {
+    Meteor.call('myBooks.remove', bookId, (error) => {
+      if (error) {
+        Bert.alert(error.reason, 'danger');
+      } else {
+        Bert.alert('Document deleted!', 'success');
+      }
+    });
+  }
+};
 
 const Requests = ({ loading, documents, match, history }) => (!loading ? (
   <div className="Documents">
@@ -44,7 +54,7 @@ const Requests = ({ loading, documents, match, history }) => (!loading ? (
             <td>
               <Button
                 bsStyle="danger"
-                onClick={()=>''}
+                onClick={() => handleRemove(_id)}
                 block
               >Done</Button>
             </td>
