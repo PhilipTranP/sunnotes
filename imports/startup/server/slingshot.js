@@ -4,8 +4,8 @@ import { Slingshot } from 'meteor/edgee:slingshot';
 import Files from '../../api/Files/files';
 
 Slingshot.fileRestrictions('Uploader', {
-  allowedFileTypes: ['image/png', 'image/jpeg', 'image/jpg', 'image/svg', 'image/gif', 'image/svg+xml'],
-  maxSize: 1 * 1024 * 1024, // 1MB limit (use null for unlimited)
+  allowedFileTypes: ['text/html', 'image/png', 'image/jpeg', 'image/jpg', 'image/svg', 'image/gif', 'image/svg+xml'],
+  maxSize: 100 * 1024 * 1024, // 1MB limit (use null for unlimited)
 });
 
 Slingshot.createDirective('Uploader', Slingshot.S3Storage, {

@@ -33,7 +33,7 @@ export default class Book extends Component {
                </select>
              </div>
            </div>
-           <div className="book-title">{book.title}</div>
+           <a href="https://sunnotes.s3-us-west-1.amazonaws.com/AidCenkBqcZPRaAL4/Jacket/sample.html" target="_blank"><div className="book-title">{book.title}</div></a>
            <div className="book-authors">
              { book.authors && book.authors.length
                 ?
