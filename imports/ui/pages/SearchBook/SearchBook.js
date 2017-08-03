@@ -71,8 +71,9 @@ export default class SearchBook extends Component {
     // };
       const bookData = {
            _id: myBook.id,
-           title: myBook.title
+           title: myBook.title + " " + myBook.authors[0]
       }
+      console.log(bookData.title)
       Meteor.call("myBooks.insert", bookData, (error, bookId) => {
         if (error) {
           Bert.alert(error.reason, 'danger');

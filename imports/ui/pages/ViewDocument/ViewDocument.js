@@ -8,6 +8,7 @@ import Documents from '../../../api/Documents/Documents';
 import NotFound from '../NotFound/NotFound';
 import Loading from '../../components/Loading/Loading';
 
+
 const handleRemove = (documentId, history) => {
   if (confirm('Are you sure? This is permanent!')) {
     Meteor.call('documents.remove', documentId, (error) => {

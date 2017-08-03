@@ -10,6 +10,7 @@ import { createContainer } from 'meteor/react-meteor-data'
 import { Bert } from 'meteor/themeteorchef:bert'
 import validate from '../../../modules/validate'
 import Files from '../../../api/Files/files'
+// import Iframe from 'react-iframe'
 
 import DocEditor from '../../components/DocumentEditor/DocEditor'
 
@@ -25,9 +26,20 @@ class NewBook extends Component {
           <li className="Tab">Libraries</li>
          </ul>
         </div>
+        {/*
+        <div>
+          <Iframe url="https://sunnotes.s3-us-west-1.amazonaws.com/AidCenkBqcZPRaAL4/Jacket/sample.html"
+            position="absolute"
+          width="100%"
+          height="100%"
+          styles={{height: "1025px"}}
+          allowFullScreen/>
+        </div>
+        */}
         <div style={{marginTop: "50px"}}>
           <DocEditor history={history} files={files} />
         </div>
+
       </div>
     )
   }
