@@ -14,8 +14,9 @@ import NewJacket from '../../pages/NewDocument/NewJacket';
 import NewBook from '../../pages/NewDocument/NewBook';
 import NewLibrary from '../../pages/NewDocument/NewLibrary';
 
-import SearchBook from '../../pages/SearchBook/SearchBook'
-import Requests from '../../pages/SearchBook/Requests'
+import BookHome from '../../pages/MyBooks/BookHome'
+import SearchBook from '../../pages/MyBooks/SearchBook'
+import Requests from '../../pages/MyBooks/Requests'
 
 
 import ViewDocument from '../../pages/ViewDocument/ViewDocument';
@@ -27,7 +28,6 @@ import RecoverPassword from '../../pages/RecoverPassword/RecoverPassword';
 import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 import Profile from '../../pages/Profile/Profile';
 import NotFound from '../../pages/NotFound/NotFound';
-import Footer from '../../components/Footer/Footer';
 import Terms from '../../pages/Terms/Terms';
 import Privacy from '../../pages/Privacy/Privacy';
 import ExamplePage from '../../pages/ExamplePage/ExamplePage';
@@ -42,7 +42,8 @@ const App = props => (
         <Switch>
           <Route exact name="index" path="/" component={Index} />
           <Authenticated exact path="/documents" component={Documents} {...props} />
-          <Authenticated exact path="/search-book" component={SearchBook} {...props} />
+          <Authenticated exact path="/my-book" component={BookHome} {...props} />
+          <Authenticated exact path="/my-book/search" component={SearchBook} {...props} />
           <Authenticated exact path="/requests" component={Requests} {...props} />
           <Authenticated exact path="/documents/new" component={NewJacket} {...props} />
           <Authenticated exact path="/documents/new/book-info" component={NewBook} {...props} />
@@ -61,7 +62,6 @@ const App = props => (
           <Route component={NotFound} />
         </Switch>
       </Grid>
-      <Footer />
     </div> : ''}
   </Router>
 );

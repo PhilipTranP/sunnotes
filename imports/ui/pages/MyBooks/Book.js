@@ -6,8 +6,12 @@ export default class Book extends Component {
     option: ''
   }
   onSelect(id, option){
-    // this.props.updateBooksInShelf(id, option)
-    this.props.addToMyBooks(id)
+    if(this.props.updateBooksInShelf){
+      this.props.updateBooksInShelf(id, option)
+    } else if (this.props.updateBooksFromSearch) {
+      this.props.updateBooksFromSearch(id, option)
+      this.props.addToMyBooks(id)
+    }
     this.setState({option: "none"}) //this resets the select options
   }
   render(){
