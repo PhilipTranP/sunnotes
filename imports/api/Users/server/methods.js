@@ -9,6 +9,8 @@ Meteor.methods({
       emailAddress: String,
       password: Match.Optional(Object),
       profile: {
+        phone: String,
+        city: String,
         name: {
           first: String,
           last: String,

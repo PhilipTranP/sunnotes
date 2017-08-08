@@ -7,6 +7,11 @@ let token = localStorage.token
 if (!token)
   token = localStorage.token = Math.random().toString(36).substr(-8)
 
+// export const setToken = newToken => {
+//   token = newToken
+//   localStorage.setItem('token', token)
+// }
+
 const headers = {
   'Accept': 'application/json',
   'Authorization': token
@@ -32,7 +37,7 @@ export const update = (book, shelf) =>
     body: JSON.stringify({ shelf })
   }).then(res => res.json())
 
-export const search = (query, maxResults) =>
+export const search = (query, maxResults, toke) =>
   fetch(`${api}/search`, {
     method: 'POST',
     headers: {

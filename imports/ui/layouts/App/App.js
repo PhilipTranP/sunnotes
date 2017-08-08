@@ -9,7 +9,7 @@ import Navigation from '../../components/Navigation/Navigation';
 import Authenticated from '../../components/Authenticated/Authenticated';
 import Public from '../../components/Public/Public';
 import Index from '../../pages/Index/Index';
-import Documents from '../../pages/Documents/Documents';
+// import Documents from '../../pages/Documents/Documents';
 import NewJacket from '../../pages/NewDocument/NewJacket';
 import NewBook from '../../pages/NewDocument/NewBook';
 import NewLibrary from '../../pages/NewDocument/NewLibrary';
@@ -17,6 +17,7 @@ import NewLibrary from '../../pages/NewDocument/NewLibrary';
 import BookHome from '../../pages/MyBooks/BookHome'
 import SearchBook from '../../pages/MyBooks/SearchBook'
 import Requests from '../../pages/MyBooks/Requests'
+import Available from '../../pages/MyBooks/Available'
 
 
 import ViewDocument from '../../pages/ViewDocument/ViewDocument';
@@ -41,8 +42,11 @@ const App = props => (
       <Grid>
         <Switch>
           <Route exact name="index" path="/" component={Index} />
-          <Authenticated exact path="/documents" component={Documents} {...props} />
-          <Authenticated exact path="/my-book" component={BookHome} {...props} />
+          <Authenticated exact path="/my-books" component={BookHome} {...props} />
+          {/*<Authenticated exact path="/documents" component={Documents} {...props} />
+          <Authenticated exact path="/book-service/search" component={SearchBook} {...props} /> */}
+
+          <Authenticated exact path="/available" component={Available} {...props} />
           <Authenticated exact path="/my-book/search" component={SearchBook} {...props} />
           <Authenticated exact path="/requests" component={Requests} {...props} />
           <Authenticated exact path="/documents/new" component={NewJacket} {...props} />
@@ -51,6 +55,7 @@ const App = props => (
           <Authenticated exact path="/documents/:_id" component={ViewDocument} {...props} />
           <Authenticated exact path="/documents/:_id/edit" component={EditDocument} {...props} />
           <Authenticated exact path="/profile" component={Profile} {...props} />
+          <Public path="/book-service/search" component={SearchBook} {...props} />
           <Public path="/signup" component={Signup} {...props} />
           <Public path="/login" component={Login} {...props} />
           <Public path="/logout" component={Logout} {...props} />

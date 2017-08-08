@@ -10,8 +10,8 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { createContainer } from 'meteor/react-meteor-data';
 import InputHint from '../../components/InputHint/InputHint';
 import validate from '../../../modules/validate';
-import { Geolocation } from 'meteor/mdg:geolocation';
-import { reverseGeocode } from 'meteor/jaymc:google-reverse-geocode';
+// import { Geolocation } from 'meteor/mdg:geolocation';
+// import { reverseGeocode } from 'meteor/jaymc:google-reverse-geocode';
 
 import './Profile.scss';
 
@@ -26,24 +26,24 @@ class Profile extends React.Component {
     this.renderProfileForm = this.renderProfileForm.bind(this);
   }
 
-  setLocation() {
-    var latLng = new ReactiveVar();
-    Tracker.autorun(function(computation) {
-        latLng.set(Geolocation.latLng());
-        if (latLng.get()) {
-            computation.stop();
-            console.log(latLng);
-            var lat = latLng.curValue.lat;
-            var lng = latLng.curValue.lng;
-            reverseGeocode.getSecureLocation(lat, lng, function(location) {
-                console.log(reverseGeocode.getAddrStr())
-                Meteor.users.update(Meteor.userId(), {
-                    $set: {"profile.location": reverseGeocode.getAddrStr()}
-                });
-            });
-        }
-    })
-  }
+  // setLocation() {
+  //   var latLng = new ReactiveVar();
+  //   Tracker.autorun(function(computation) {
+  //       latLng.set(Geolocation.latLng());
+  //       if (latLng.get()) {
+  //           computation.stop();
+  //           console.log(latLng);
+  //           var lat = latLng.curValue.lat;
+  //           var lng = latLng.curValue.lng;
+  //           reverseGeocode.getSecureLocation(lat, lng, function(location) {
+  //               console.log(reverseGeocode.getAddrStr())
+  //               Meteor.users.update(Meteor.userId(), {
+  //                   $set: {"profile.location": reverseGeocode.getAddrStr()}
+  //               });
+  //           });
+  //       }
+  //   })
+  // }
 
   componentDidMount() {
     const component = this;
@@ -106,9 +106,12 @@ class Profile extends React.Component {
     const profile = {
       emailAddress: this.emailAddress.value,
       profile: {
+        phone: this.phone.value,
+        city: this.city.value,
         name: {
           first: this.firstName.value,
           last: this.lastName.value,
+
         },
       },
     };
@@ -164,6 +167,16 @@ class Profile extends React.Component {
         </Col>
       </Row>
       <FormGroup>
+        <ControlLabel>City</ControlLabel>
+        <input
+          type="text"
+          name="city"
+          ref={city => (this.city = city)}
+          className="form-control"
+        />
+      <InputHint>for your book assistant agent knows your local library to narrow the search</InputHint>
+      </FormGroup>
+      <FormGroup>
         <ControlLabel>Email Address</ControlLabel>
         <input
           type="email"
@@ -192,7 +205,17 @@ class Profile extends React.Component {
         />
         <InputHint>Use at least six characters.</InputHint>
       </FormGroup>
-      <Button bsStyle="success" onClick={this.setLocation.bind(this)}>Set location</Button>
+      <FormGroup>
+        <ControlLabel>Phone Number</ControlLabel>
+        <input
+          type="text"
+          name="phone"
+          ref={phone => (this.phone = phone)}
+          className="form-control"
+        />
+      <InputHint>if you want to receive notifs via SMS</InputHint>
+      </FormGroup>
+      {/*<Button bsStyle="success" onClick={this.setLocation.bind(this)}>Set location</Button> */}
       <Button type="submit" bsStyle="success">Save Profile</Button>
     </div>) : <div />;
   }

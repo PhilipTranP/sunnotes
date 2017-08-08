@@ -28,7 +28,11 @@ export default class SearchBook extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.renderSearchResults = this.renderSearchResults.bind(this)
   }
+  componentWillMount(){
+    localStorage.setItem('token', Meteor.userId())
+  }
   componentDidMount() {
+    console.log(localStorage.token)
     this.nameInput.focus() // TODO: show placeholder when not in focus mode.
     BooksAPI.getAll()
     .then(result => {
@@ -56,7 +60,6 @@ export default class SearchBook extends Component {
     const myBook = _.find(this.state.searchResults, {id: bookId.id})
 
     // this.setState({ myBook })
-    console.log(myBook)
     // this.setState({myBook: Object.assign({}, myBook)})
     // console.log(this.state.myBook)
     // const { jacket, authors, title, descript, edition, content, summary, subjects, ISBNs, shelf } = this.state
@@ -85,7 +88,6 @@ export default class SearchBook extends Component {
            _id: myBook.id,
            title: myBook.title + " " + myBook.authors[0]
       }
-      console.log(bookData.title)
       Meteor.call("myBooks.insert", bookData, (error, bookId) => {
         if (error) {
           Bert.alert(error.reason, 'danger');
@@ -117,7 +119,7 @@ export default class SearchBook extends Component {
   }
   handleSubmit(event) {
     event.preventDefault()
-    BooksAPI.search(this.state.query)
+    BooksAPI.search(this.state.query, 20)
     .then(result => {
       // If BooksApi returns anything other than array throw error and skip state updates
       if(!Array.isArray(result)) {

@@ -48,12 +48,13 @@ class Login extends React.Component {
         Bert.alert(error.reason, 'danger');
       } else {
         Bert.alert('Welcome back!', 'success');
-        history.push('/documents');
+        history.push('/my-books');
       }
     });
   }
 
   render() {
+    console.log(localStorage.token)
     return (<div className="Login">
       <Row>
         <Col xs={12} sm={6} md={5} lg={4}>

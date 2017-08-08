@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom'
 import escapeRegExp from 'escape-string-regexp'
 import FloatingPlusButton from './FloatingPlusButton'
 import BookShelf from './BookShelf'
-import SearchBook from './SearchBook'
 import * as BooksAPI from './BooksAPI'
 import './Books.css'
 
@@ -15,6 +14,11 @@ export default class BookHome extends Component {
       sortedBooks: []
     }
   }
+
+  componentWillMount(){
+    localStorage.setItem('token', Meteor.userId())
+  }
+
   componentDidMount() {
      this.sortBooks()
   }
