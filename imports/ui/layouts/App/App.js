@@ -25,6 +25,7 @@ import EditDocument from '../../pages/EditDocument/EditDocument';
 import Signup from '../../pages/Signup/Signup';
 import Login from '../../pages/Login/Login';
 import Logout from '../../pages/Logout/Logout';
+import VerifyEmail from '../../pages/VerifyEmail/VerifyEmail';
 import RecoverPassword from '../../pages/RecoverPassword/RecoverPassword';
 import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 import Profile from '../../pages/Profile/Profile';
@@ -60,6 +61,7 @@ const App = props => (
           <Public path="/login" component={Login} {...props} />
           <Public path="/logout" component={Logout} {...props} />
           <Route name="recover-password" path="/recover-password" component={RecoverPassword} />
+          <Route name="verify-email" path="/verify-email/:token" component={VerifyEmail} />
           <Route name="reset-password" path="/reset-password/:token" component={ResetPassword} />
           <Route name="terms" path="/terms" component={Terms} />
           <Route name="privacy" path="/privacy" component={Privacy} />
