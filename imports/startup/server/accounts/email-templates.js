@@ -17,7 +17,7 @@ emailTemplates.resetPassword = {
     const userEmail = user.emails[0].address;
     const urlWithoutHash = url.replace('#/', '');
 
-    if (Meteor.isDevelopment) console.info(`Reset Password Link: ${urlWithoutHash}`);
+    // if (Meteor.isDevelopment) console.info(`Reset Password Link: ${urlWithoutHash}`);
 
     return `A password reset has been requested for the account related to this
     address (${userEmail}). To reset the password, visit the following link:

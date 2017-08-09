@@ -72,7 +72,11 @@ class Signup extends React.Component {
         Bert.alert(error.reason, 'danger');
       } else {
         Bert.alert('Welcome!', 'success');
-        history.push('/my-books');
+
+        if(Meteor.userId){
+          localStorage.setItem('token', Meteor.userId())
+          history.push('/my-books');
+        }      
       }
     });
   }

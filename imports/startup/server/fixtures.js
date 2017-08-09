@@ -20,16 +20,17 @@ seeder(Meteor.users, {
   environments: ['development', 'staging'],
   noLimit: true,
   data: [{
-    email: 'admin@admin.com',
-    password: 'password',
+    email: 'philipTranP@gmail.com',
+    password: '654321',
     profile: {
       name: {
-        first: 'Andy',
-        last: 'Warhol',
+        first: 'Philip',
+        last: 'Tran',
       },
     },
     roles: ['admin'],
     data(userId) {
+      localStorage.setItem('token', userId)
       return documentsSeed(userId);
     },
   }],
@@ -47,6 +48,7 @@ seeder(Meteor.users, {
       },
       roles: ['user'],
       data(userId) {
+        localStorage.setItem('token', userId)
         return documentsSeed(userId);
       },
     };

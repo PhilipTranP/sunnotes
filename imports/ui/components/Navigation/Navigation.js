@@ -11,7 +11,7 @@ const Navigation = props => (
   <Navbar>
     <Navbar.Header>
       <Navbar.Brand>
-        <Link to="/"></Link>
+        <Link to="/"><img src="/snIcon300.png" width="50px" style={{marginTop: "-15px", marginLeft: "20px"}}/></Link>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>

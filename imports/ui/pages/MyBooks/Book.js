@@ -28,12 +28,12 @@ export default class Book extends Component {
                  <option value="currentlyReading">Currently Reading</option>
                  <option value="wantToRead">Want to Read</option>
                  <option value="read">Read</option>
-                 {/*this.props.query
+                 {!this.props.updateBooksFromSearch
                    ?
                      <option value="none">Remove from shelf</option>
 
                    : null
-                 */}
+                 }
                </select>
              </div>
            </div>
