@@ -8,8 +8,8 @@ const AuthenticatedNavigation = ({ name }) => (
   <div>
 
     <Nav>
-      <LinkContainer to="/book-service/search">
-        <NavItem eventKey={1} href="/book-service/search">Books</NavItem>
+      <LinkContainer to="/book-search">
+        <NavItem eventKey={1} href="/book-search">Search Books</NavItem>
       </LinkContainer>
     </Nav>
   {/*

@@ -198,6 +198,9 @@ export default class SearchBook extends Component {
                    {this.renderSearchResults()}
                  </ol>
                </div>
+               <div className="floating-book-button">
+                 <Link to="/my-books">To My Shelf</Link>
+               </div>
             </div>
 
       )

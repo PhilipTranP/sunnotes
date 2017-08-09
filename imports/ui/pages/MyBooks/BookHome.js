@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import escapeRegExp from 'escape-string-regexp'
-import FloatingPlusButton from './FloatingPlusButton'
 import BookShelf from './BookShelf'
 import * as BooksAPI from './BooksAPI'
 import './Books.css'
@@ -46,7 +45,9 @@ export default class BookHome extends Component {
                  }
                </div>
 
-             <FloatingPlusButton  />
+               <div className="floating-plus-button">
+                 <Link to="/book-search">Add a book</Link>
+               </div>
 
            </div>
       </div>

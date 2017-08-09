@@ -48,7 +48,7 @@ const App = props => (
           <Authenticated exact path="/book-service/search" component={SearchBook} {...props} /> */}
 
           <Authenticated exact path="/available" component={Available} {...props} />
-          <Authenticated exact path="/my-book/search" component={SearchBook} {...props} />
+          <Authenticated exact path="/book-search" component={SearchBook} {...props} />
           <Authenticated exact path="/requests" component={Requests} {...props} />
           <Authenticated exact path="/documents/new" component={NewJacket} {...props} />
           <Authenticated exact path="/documents/new/book-info" component={NewBook} {...props} />
@@ -56,7 +56,6 @@ const App = props => (
           <Authenticated exact path="/documents/:_id" component={ViewDocument} {...props} />
           <Authenticated exact path="/documents/:_id/edit" component={EditDocument} {...props} />
           <Authenticated exact path="/profile" component={Profile} {...props} />
-          <Public path="/book-service/search" component={SearchBook} {...props} />
           <Public path="/signup" component={Signup} {...props} />
           <Public path="/login" component={Login} {...props} />
           <Public path="/logout" component={Logout} {...props} />

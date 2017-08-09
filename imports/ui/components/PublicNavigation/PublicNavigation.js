@@ -5,10 +5,11 @@ import { Nav, NavItem } from 'react-bootstrap';
 const PublicNavigation = () => (
   <div>
     <Nav>
-        <LinkContainer to="/book-service/search">
-          <NavItem eventKey={1} href="/book-service/search">Books</NavItem>
-        </LinkContainer>
+
+          <NavItem eventKey={1}>Book Personal Assistant</NavItem>
+
     </Nav>
+
     <Nav pullRight>
       <LinkContainer to="/signup">
         <NavItem eventKey={1} href="/signup">Sign Up</NavItem>
